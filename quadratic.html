@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calcualator</title>
+	<style>
+		#body{
+			text-align:center;
+		}
+		#compute{
+			background-color:lightblue;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<img src="quad.png" width="300" alt="Quadratic Formula"/>
+	<div>x (+) = : <span id="result1">...</span>, x (-) =<span id="result2">...</span></div>
+	a: <input id="a" value="1"/> b:<input id="b" value="5"/> c:<input id="c" value="3"/>
+
+	<button id="compute">Compute</button>
+	
+
+	<script>
+		console.log('hello')
+
+		function compute(evt){
+			let a = document.getElementById("a").value*1;
+			let b = document.getElementById("b").value*1;
+			let c = document.getElementById("c").value*1;
+			let x1 = (-b+Math.sqrt(b**2-4*a*c))/(2*a);
+			let x2 = (-b-Math.sqrt(b**2-4*a*c))/(2*a);
+			x1 = x1.toFixed(2);
+			x2 = x2.toFixed(2);
+			console.log(a,b,c,x1,x2);
+
+			let q1out = document.getElementById("result1");
+			let q2out = document.getElementById("result2");
+			q1out.textContent = x1;
+			q2out.textContent = x2;
+
+		}
+
+		let computeButton = document.getElementById("compute");
+		computeButton.addEventListener("click",compute);
+
+	</script>
+</body>
+</html>
